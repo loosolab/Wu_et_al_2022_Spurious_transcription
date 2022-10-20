@@ -40,8 +40,8 @@ java -Xmx24g -jar /mnt/software/x86_64/packages/picard/2.21.7/picard.jar FilterS
 ## Join all sample counts to raw count matrix: =counts.matrix
 merge_counts.pl ./star/*_fcounts.txt >counts.matrix
 
-## RNA differential analysis: R with DESeq2 package
+## RNA differential analysis: R with DESeq2 1.26.0 package
 R --vanilla -q < de_analysis.R
 
-## Normalize matrix for downstream plots: R with DESeq2 package, =counts.matrix.norm
+## Normalize matrix for downstream plots: R with DESeq2 1.26.0 package, =counts.matrix.norm
 deseq_norm.R -m counts.matrix
