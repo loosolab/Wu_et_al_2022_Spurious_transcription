@@ -1,6 +1,7 @@
 REMOVE THIS LATER:
 \yua9_Fan_RNAseq_July2018\rnaseq_2_replicates
 
+
 ## Samples:
 prefix	fastq
 ctrl_1	ctrl_1_R1.fastq
@@ -40,4 +41,4 @@ merge_counts.pl ./star/*_fcounts.txt >counts.matrix
 R --vanilla -q < de_analysis.R
 
 ## Normalize matrix for downstream plots: R with DESeq2 package, =counts.matrix.norm
-deseq_norm.r -m counts.matrix
+deseq_norm.R -m counts.matrix
