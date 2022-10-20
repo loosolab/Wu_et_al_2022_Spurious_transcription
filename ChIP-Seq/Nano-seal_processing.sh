@@ -36,20 +36,14 @@ java -Xmx24g -jar /mnt/software/x86_64/packages/picard/2.21.7/picard.jar FilterS
 
 ## Repeat mapping / filtering steps using the spike-in organism drosophila
 
-## Generate spike-in normalization factors to be applied to BAM files
-
-
-
-
-## CONTROL SPIKE_IN FACTORS!
-## SAME AS samtools view -c ./star/${sample_prefix}_nodup_filter.bam??
+## Generate spike-in normalization factors to be applied to BAM files by counting reads mapped to spike-in
+/mnt/software/x86_64/packages/samtools/1.11/bin/samtools view -c ./star/${sample_prefix}_nodup_filter.bam
 
 ## id	mapped reads in spike-in	spike-in normalization factor
-## ctrl_1	63970	1.909160
-## ctrl_2	43410	2.813384
-## ko-tet3_1	77202	1.581940
-## ko-tet3_2	122129	1.000000
-
+## ctrl_1	127875	1.909356794
+## ctrl_2	86798	2.81295652
+## ko-tet3_1	154341	1.581945173
+## ko-tet3_2	244159	1
 
 ## Generate BigWig normalized to mapped reads in spike-in organism per sample: python package deeptools 3.5.1 / bamCoverage
 /mnt/software/x86_64/packages/python/3.8.0-miniconda-4.9.2-buster/bin/bamCoverage -b ./star/${sample_prefix}_nodup_filter.bam -o ./star/${sample_prefix}_nodup_filter_spikein.bw -p 16 --binSize 25 --smoothLength 75 --scaleFactor ${spike-in_factor} --outFileFormat bigwig
