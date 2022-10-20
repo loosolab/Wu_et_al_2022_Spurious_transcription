@@ -1,4 +1,3 @@
-
 REMOVE THIS LATER:
 \yua70_CnT_Fan_11_21\mouse\atac_dros_spikein_selected
 
@@ -14,7 +13,7 @@ ko-tet3_1	ko-tet3_1_R1.fastq,ko-tet3_1_R2.fastq
 ko-tet3_2	ko-tet3_2_R1.fastq,ko-tet3_2_R2.fastq
 
 ## Trimming: Trimmomatic
-java -jar /mnt/software/x86_64/packages/trimmomatic/0.39/trimmomatic-0.39.jar SE -threads 8 ./raw/${sample_prefix}_R1.fastq ./trim/${sample_prefix}_R1_trim.fastq HEADCROP:0 LEADING:0 TRAILING:0 SLIDINGWINDOW:5:15 CROP:500 AVGQUAL:0 MINLEN:15
+java -jar /mnt/software/x86_64/packages/trimmomatic/0.39/trimmomatic-0.39.jar PE -threads 8 ./raw/${sample_prefix}_R1.fastq ./raw/${sample_prefix}_R2.fastq ./trim/${sample_prefix}_R1_trim.fastq ./trim/${sample_prefix}_R1_unpaired.fastq ./raw/${sample_prefix}_R2.fastq ./trim/${sample_prefix}_R2_trim.fastq ./trim/${sample_prefix}_R2_unpaired.fastq HEADCROP:0 LEADING:0 TRAILING:0 SLIDINGWINDOW:5:15 CROP:500 AVGQUAL:0 MINLEN:15
 
 ## Mapping: STAR
 /mnt/software/x86_64/packages/star/2.7.10a/STAR --genomeDir /mnt/flatfiles/organisms/new_organism/mus_musculus/101/index_star --runThreadN 16 --readFilesIn ./trim/${sample_prefix}_R1_trim.fastq ./trim/${sample_prefix}_R2_trim.fastq --outReadsUnmapped Fastx --outFileNamePrefix ./star/${sample_prefix} --outSAMstrandField intronMotif --outSAMtype BAM Unsorted --genomeLoad LoadAndKeep --outFilterMismatchNoverLmax 0.1 --outFilterScoreMinOverLread 0.9 --outFilterMatchNminOverLread 0.9 --outFilterMatchNmin 20 --alignIntronMax 200000 --alignMatesGapMax 2000 --alignEndsProtrude 10 ConcordantPair --outMultimapperOrder Random --limitOutSAMoneReadBytes 10000000 --sjdbOverhang 100 --outFilterMultimapNmax 1
