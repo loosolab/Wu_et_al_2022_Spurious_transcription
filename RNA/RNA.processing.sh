@@ -34,6 +34,9 @@ cat ./star/${sample_prefix}_nodup.bam.rrna.txt >./star/${sample_prefix}_nodup.ba
 cat ./star/${sample_prefix}_nodup.bam.chrm.txt >>./star/${sample_prefix}_nodup.bam.remove.txt
 java -Xmx24g -jar /mnt/software/x86_64/packages/picard/2.21.7/picard.jar FilterSamReads I=./star/${sample_prefix}_nodup.bam O=./star/${sample_prefix}_nodup_filter.bam READ_LIST_FILE=./star/${sample_prefix}_nodup.bam.remove.txt FILTER=excludeReadList
 
+## Generate BigWig normalized to mapped reads per sample: python package deeptools 3.5.1 / bamCoverage
+/mnt/software/x86_64/packages/python/3.8.0-miniconda-4.9.2-buster/bin/bamCoverage -b ./star/${sample_prefix}_nodup_filter.bam -o ./star/${sample_prefix}_nodup_filter.bw -p 16 --binSize 25 --smoothLength 75 --normalizeUsing RPKM --outFileFormat bigwig
+
 ## Count reads per genes: subread featureCounts
 /mnt/software/x86_64/packages/subread/1.6.5/bin/featureCounts -T 16 -o ./star/${sample_prefix}_fcounts.txt -t exon -g gene_id -s 1 -a mus_musculus.101.mainChr.gtf ./star/${sample_prefix}_nodup_filter.bam
 
