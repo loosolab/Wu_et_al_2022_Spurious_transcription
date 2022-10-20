@@ -1,8 +1,5 @@
 REMOVE THIS LATER:
 \yua9_Fan_RNAseq_July2018\rnaseq_2_replicates
-upload:
-	merge_counts.pl
-
 
 ## Samples:
 prefix	fastq
