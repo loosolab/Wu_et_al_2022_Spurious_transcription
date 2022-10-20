@@ -2,6 +2,9 @@ REMOVE THIS LATER:
 \yua9_Fan_RNAseq_July2018\rnaseq_2_replicates
 
 
+## Reference GTF/FASTA: 
+Ensembl mus musculus release 101 (mm10)
+
 ## Samples:
 prefix	fastq
 ctrl_1	ctrl_1_R1.fastq
