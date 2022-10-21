@@ -6,16 +6,16 @@
 bigwigCompare --numberOfProcessors 11 \
               --outFileName TETKO_in_libnorm.bw \
               --outFileFormat bigwig \
-              --bigwig1 KO_1_spikein_fragnorm_frag.bw \
-              --bigwig2 KO_3_spikein_fragnorm_frag.bw \
+              --bigwig1 ko-tet3_1_spikein_fragnorm_frag.bw \
+              --bigwig2 ko-tet3_2_spikein_fragnorm_frag.bw \
               --operation mean
               
               
 bigwigCompare --numberOfProcessors 11 \
               --outFileName Ctrl_in_libnorm.bw \
               --outFileFormat bigwig \
-              --bigwig1 WT_2_spikein_fragnorm_frag.bw \
-              --bigwig2 WT_3_spikein_fragnorm_frag.bw \
+              --bigwig1 ctrl_1_spikein_fragnorm_frag.bw \
+              --bigwig2 ctrl_2_spikein_fragnorm_frag.bw \
               --operation mean
 
 
