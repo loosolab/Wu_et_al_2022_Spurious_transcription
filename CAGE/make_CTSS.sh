@@ -1,6 +1,6 @@
 
 #!/bin/sh
-
+#make_ctss.sh acquired from Takahashi, H., Lassmann, T., Murata, M. et al. 5′ end–centered expression profiling using cap-analysis gene expression and next-generation sequencing. Nat Protoc 7, 542–561 (2012). https://doi.org/10.1038/nprot.2012.005
 if [ $# -eq 0 ]                  
 then
  cat <<EOF
