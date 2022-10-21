@@ -20,6 +20,10 @@ bigwigCompare --numberOfProcessors 11 \
 
 
 #quantile seperation by gene expression (RPKM in RNA-seq)
+#RNA_seq_RPKM_Q1.csv
+#RNA_seq_RPKM_Q2.csv
+#RNA_seq_RPKM_Q3.csv
+#RNA_seq_RPKM_Q4.csv
 
 #annotation the gene region in mm10
 join -1 1 -2 4 -o 2.1,2.2,2.3,2.4,2.5,2.6 \
