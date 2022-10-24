@@ -31,10 +31,10 @@ cat ./star/${sample_prefix}_nodup.bam.rrna.txt >./star/${sample_prefix}_nodup.ba
 cat ./star/${sample_prefix}_nodup.bam.chrm.txt >>./star/${sample_prefix}_nodup.bam.remove.txt
 java -Xmx24g -jar /mnt/software/x86_64/packages/picard/2.21.7/picard.jar FilterSamReads I=./star/${sample_prefix}_nodup.bam O=./star/${sample_prefix}_nodup_filter.bam READ_LIST_FILE=./star/${sample_prefix}_nodup.bam.remove.txt FILTER=excludeReadList
 
-## Repeat mapping / filtering steps using the spike-in organism drosophila
+## Repeat mapping / filtering steps using the spike-in organism drosophila (-> ./star_spikein/)
 
 ## Generate spike-in normalization factors to be applied to BAM files by counting reads mapped to spike-in
-/mnt/software/x86_64/packages/samtools/1.11/bin/samtools view -c ./star/${sample_prefix}_nodup_filter.bam
+/mnt/software/x86_64/packages/samtools/1.11/bin/samtools view -c ./star_spikein/${sample_prefix}_nodup_filter.bam
 
 ## id	mapped reads in spike-in	spike-in normalization factor
 ## ctrl_1	127875	1.909356794
