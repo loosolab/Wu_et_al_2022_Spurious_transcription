@@ -1,8 +1,6 @@
+#downstream anaylsis of Nanoseal-seq
 
-
-#downstream anaylsis on Nanoseal-seq
-
-#merge the bw files accroding to genotype
+#merge the bw files according to genotype
 bigwigCompare --numberOfProcessors 11 \
               --outFileName TETKO_in_libnorm.bw \
               --outFileFormat bigwig \
@@ -25,7 +23,7 @@ bigwigCompare --numberOfProcessors 11 \
 #RNA_seq_RPKM_Q3.csv
 #RNA_seq_RPKM_Q4.csv
 
-#annotation the gene region in mm10
+#annotation of gene region in mm10
 join -1 1 -2 4 -o 2.1,2.2,2.3,2.4,2.5,2.6 \
 <(sort -k 1 RNA_seq_RPKM_Q1.csv) \
 <(sort -k 4 Mus_musculus.GRCm38.100_genes.bed) \
@@ -53,7 +51,7 @@ join -1 1 -2 4 -o 2.1,2.2,2.3,2.4,2.5,2.6 \
 
 
 
-#remove black list region
+#remove black listed region
 bedtools intersect -v -a RNA_seq_RPKM_Q1.bed \
                              -b mm10.blacklist.bed \
                              > RNA_seq_RPKM_Q1_rmbl.bed
@@ -155,7 +153,7 @@ sed -i 's/\t*$//' RNA_seq_RPKM_bottom5to25.TES200.bed
 sed -i 's/\t*$//' RNA_seq_RPKM_bottom5.TES200.bed
 
 
-#remove blacklist region
+#remove blacklisted region
 bedtools intersect -v -a RNA_seq_RPKM_Q1.TSS200.bed \
                              -b mm10.blacklist.bed \
                              > RNA-seq_Q1_mm10_filtered.TSS200_rmbl.bed
@@ -329,7 +327,7 @@ plotProfile -m Nanoseal_global_10kb.mat.gz \
               --samplesLabel "ctrl." "TET3KO" \
               --perGroup
 
-#ploting according to the gene anotation, grouped by PolII ChIP-seq groups
+#plot according to gene anotation, grouped by PolII ChIP-seq groups
 
 computeMatrix scale-regions \
 -S Ctrl_in_libnorm.bw \
@@ -358,7 +356,7 @@ plotProfile -m Nanoseal_byPolIIChIP_3kb_RmBl.mat.gz \
 cut -f 1,2,3,4,5,6 UCSC_mm10_refSeq_exons.rtf >UCSC_mm10_refSeq_exons.bed
 cut -f 1,2,3,4,5,6 UCSC_mm10_refSeq_introns.rtf >UCSC_mm10_refSeq_introns.bed
 
-#remove the exons and introns smaller than 200 bp
+#remove exons and introns smaller than 200 bp
 
 awk  '$3-$2 > 200 {print}' UCSC_mm10_refSeq_exons.bed | sort  -k1 -k2 > UCSC_mm10_refSeq_exons_bt200np.bed
 wc -l UCSC_mm10_refSeq_exons.bed
@@ -416,7 +414,7 @@ plotProfile -m Nanoseal_global_ucsc_intron_bt200np.mat.gz \
               --samplesLabel "ctrl." "TET3KO" \
               --perGroup#spurious gene and radomn non-spirous genes profile grouped by genotype
 
-#generate random non-spurious expressed gene list with the same size of spurious gene group
+#generate random non-spurious expressed gene list with the same size as spurious gene group
 cat non_spurious_gene.bed.csv |shuf | head -515 > non_spurious_gene_random1.bed
 cat non_spurious_gene.bed.csv |shuf | head -515 > non_spurious_gene_random2.bed
 
