@@ -1,7 +1,3 @@
-REMOVE THIS LATER:
-\yua9_Fan_RNAseq_July2018\rnaseq_2_replicates
-
-
 ## Reference GTF/FASTA: 
 Ensembl mus musculus release 101 (mm10)
 
