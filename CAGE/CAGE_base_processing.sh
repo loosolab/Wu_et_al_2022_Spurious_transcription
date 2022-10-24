@@ -99,7 +99,7 @@ bedGraphToBigWig Ctrl-2_CTSS_sorted.bedgraph mm10.chrom.sizes Ctrl-2_CTSS.bw
 
 wiggletools mean Ctrl-1_CTSS.bw Ctrl-2_CTSS.bw | wigToBigWig stdin mm10.chrom.sizes Ctrl_CTSS_mean.bw
 
-#merge the replilcates in TET3KO group
+#merge the replicates in TET3KO group
 awk '{printf "%s\t%d\t%d\t%2.3f\n" , $1,$2,$3,$5}' TET3KO-1.bam.ctss.bed > TET3KO-1_CTSS.bedgraph
 LC_COLLATE=C sort -k1,1 -k2,2n -k3,3n -s TET3KO-1_CTSS.bedgraph > TET3KO-1_CTSS.bedgraph.tmp
 bedtools merge -i TET3KO-1_CTSS.bedgraph.tmp -c 4 -d 0 -o max > TET3KO-1_CTSS_out.bedgraph
@@ -114,7 +114,7 @@ bedGraphToBigWig TET3KO-2_CTSS_sorted.bedgraph mm10.chrom.sizes TET3KO-2_CTSS.bw
 
 wiggletools mean TET3KO-1_CTSS.bw TET3KO-2_CTSS.bw | wigToBigWig stdin mm10.chrom.sizes TET3KO_CTSS_mean.bw
 
-#merge the replilcates in Control group with 8 tags as cut-off
+#merge the replicates in Control group with 8 tags as cut-off
 awk '{printf "%s\t%d\t%d\t%2.3f\n" , $1,$2,$3,$5}' Ctrl-1.bam.ctss_cutoff_8.bed > Ctrl-1_CTSS_cutoff_8.bedgraph
 LC_COLLATE=C sort -k1,1 -k2,2n -k3,3n -s Ctrl-1_CTSS_cutoff_8.bedgraph > Ctrl-1_CTSS_cutoff_8.bedgraph.tmp
 bedtools merge -i Ctrl-1_CTSS_cutoff_8.bedgraph.tmp -c 4 -d 0 -o max > Ctrl-1_CTSS_cutoff_8_out.bedgraph
@@ -129,7 +129,7 @@ bedGraphToBigWig Ctrl-2_cutoff_8_CTSS_sorted.bedgraph mm10.chrom.sizes Ctrl-2_cu
 
 wiggletools mean Ctrl-1_cutoff_8_CTSS.bw Ctrl-2_cutoff_8_CTSS.bw | wigToBigWig stdin mm10.chrom.sizes Ctrl_CTSS_cutoff_8_mean.bw
 
-#merge the replilcates in TET3KO group with 8 tags as cut-off
+#merge the replicates in TET3KO group with 8 tags as cut-off
 awk '{printf "%s\t%d\t%d\t%2.3f\n" , $1,$2,$3,$5}' TET3KO-1.bam.ctss_cutoff_8.bed > TET3KO-1_CTSS_cutoff_8.bedgraph
 LC_COLLATE=C sort -k1,1 -k2,2n -k3,3n -s TET3KO-1_CTSS_cutoff_8.bedgraph > TET3KO-1_CTSS_cutoff_8.bedgraph.tmp
 bedtools merge -i TET3KO-1_CTSS_cutoff_8.bedgraph.tmp -c 4 -d 0 -o max > TET3KO-1_CTSS_cutoff_8_out.bedgraph
@@ -145,7 +145,7 @@ bedGraphToBigWig TET3KO-2_cutoff_8_CTSS_sorted.bedgraph mm10.chrom.sizes TET3KO-
 wiggletools mean TET3KO-1_cutoff_8_CTSS.bw TET3KO-2_cutoff_8_CTSS.bw | wigToBigWig stdin mm10.chrom.sizes TET3KO_CTSS_cutoff_8_mean.bw
 
 
-# calculate the CTSS at genbody without exon1
+# calculate the CTSS at genebody without exon1
 # Mus_musculus.GRCm38.100_genewithoutexon1.bed
 # Count overlap of CTSS on genebody without exon1. Only CTSS at the same strand with gene annotation (sense CTSS) are kept.
 find . -name '*ctss.bed' | parallel 'bedtools coverage -counts -s -a Mus_musculus.GRCm38.100_genewithoutexon1.bed.csv -b {} > {.}_quantif_withoutexon1.sense.bed'
