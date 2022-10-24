@@ -1,7 +1,3 @@
-REMOVE THIS LATER:
-\yua69_ChIPseq_Fan_09_21\newRun_yua69
-
-
 ## Reference GTF/FASTA: 
 Ensembl mus musculus release 101 (mm10)
 
