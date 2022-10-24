@@ -2,7 +2,7 @@
 ## code repository: https://osdn.net/projects/reclu/releases/
 
 ##CAGE processing
-#acquired mapped bam files from RILKEN 
+#acquired mapped bam files from RIKEN 
 #remove the black list region
 find . -name '*.bam*' | parallel 'bedtools intersect -v -b mm10.blacklist.bed -abam {} > {.}.filtered.bam'
 
@@ -36,7 +36,7 @@ plotProfile -m matrix_CAGE_TSS_spurious_nonspurious.gz \
       --plotFileFormat svg \
       -out CAGE_TSS_spurious_nonspurious.svg 
       
-      
+     
 #make_ctss.sh acquired from Takahashi, H., Lassmann, T., Murata, M. et al. 5′ end–centered expression profiling using cap-analysis gene expression and next-generation sequencing. Nat Protoc 7, 542–561 (2012). https://doi.org/10.1038/nprot.2012.005
 #clip the tags to 1 nucleotide length at 5'end, outpout bed files
 sed -i 's/\r//' make_ctss.sh
