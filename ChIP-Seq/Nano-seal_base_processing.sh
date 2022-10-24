@@ -1,6 +1,3 @@
-REMOVE THIS LATER:
-\yua70_CnT_Fan_11_21\mouse\atac_dros_spikein_selected
-
 ## Reference GTF/FASTA: 
 Ensembl mus musculus release 101 (mm10)
 spike-in: Ensembl drosophila melanogaster release 104 
