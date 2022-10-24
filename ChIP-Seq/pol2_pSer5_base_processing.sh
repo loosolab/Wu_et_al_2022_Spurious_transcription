@@ -1,8 +1,3 @@
-REMOVE THIS LATER:
-\yua7_Fan_ChIP_Tet3\experiment\chipseq_selected
-
-
-
 ## Reference GTF/FASTA: 
 Ensembl mus musculus release 101 (mm10)
 
