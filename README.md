@@ -1,5 +1,7 @@
 # Wu_et_al_2022_Spurious_transcription
 
+[![DOI](https://zenodo.org/badge/552852940.svg)](https://zenodo.org/badge/latestdoi/552852940)
+
 ABSTRACT:
 Generation of functional transcripts requires transcriptional initiation at regular start sites, avoiding production of aberrant and potentially hazardous aberrant RNAs. The mechanisms maintaining transcriptional fidelity and the impact of spurious transcripts on cellular physiology and organ function have not been fully elucidated. Here, we show that TET3, which successively oxidizes 5-methylcytosine (5mC) to 5-hydroxymethylcytosine (5hmC) and other derivatives, prevents aberrant intragenic entry of RNA Polymerase II pSer5 into highly expressed genes of airway smooth muscle cells (SMCs), assuring faithful transcriptional initiation at canonical start sites. Loss of TET3-dependent 5hmC production in SMCs results in accumulation of spurious transcripts, which stimulate the endosomal nucleic acid-sensing TLR7/8 signaling pathway, thereby provoking massive inflammation and airway remodeling resembling human bronchial asthma. Furthermore, we found that 5hmC levels are substantially lower in human asthma airways compared to control samples. Suppression of spurious transcription might be important to prevent chronic inflammation in asthma.
 
